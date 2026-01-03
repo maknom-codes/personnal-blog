@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Article</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width-device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" th:href="@{/css/article.css}"/>
+</head>
+<body>
+   <div class="container">
+      <header class="header" th:if="${article != null}">
+         <h1 th:text="${article.title}">Article</h1>
+         <p class="subtitle" th:text="${article.publishDate}">date</p>
+      </header>
+      <header class="header" th:unless="${article != null}">
+         <h1>Aucun Article ne Correspond</h1>
+      </header>
+      <div class="page-content" th:if="${article != null}">
+         <div class="articles-container">
+               <div class="article-title" th:text="${article.content}"> Le texte</div>
+         </div>
+      </div>
+      <div class="form-actions">
+         <a  th:href="@{/home}" class="btn btn-secondary">
+            < Return to user home page
+         </a>
+         <a  th:href="@{/admin}" class="btn btn-primary">
+            << Return to admin home page
+         </a>
+      </div>
+   </div>
+</body>
+</html>

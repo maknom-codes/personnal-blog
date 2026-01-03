@@ -1,0 +1,24 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+  application:
+    name: personal-blog
+    storage:
+      path: ${JSON_DATA_PATH:${user.home}/personalblog-data}
+      files:
+        extension: "*.json"
+      allow-overwrite: true
+      max-file-size-mb: 5
+    logging:
+      file-path: true
+  web:
+    resources:
+      static-locations: classpath:/static/

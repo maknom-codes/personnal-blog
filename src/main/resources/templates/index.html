@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Le Blog</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width-device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" th:href="@{/css/blog.css}"/>
+</head>
+<body>
+   <div class="container">
+      <header class="header">
+         <h1 th:text="${titre}">Personal Blog</h1>
+      </header>
+      <div class="page-content">
+         <div class="articles-container" th:if="${articles != null and !articles.isEmpty()}">
+            <div class="article-row" th:each="article: ${articles}">
+               <div>
+                  <a class="article-title" th:href="@{/blogs/{articleId}(articleId=${article.id})}" th:text="${article.title}">Titre de l'article</a>
+               </div>
+               <div class="article-date" th:text="${article.publishDate}">date de publication</div>
+            </div>
+         </div>
+         <div class="articles-container" th:unless="${articles != null and !articles.isEmpty()}">
+            <p>Aucun article disponible</p>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

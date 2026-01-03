@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Le Blog</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width-device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}"/>
+</head>
+<body>
+   <div class="container">
+      <header class="header">
+         <div><h1 th:text="${article.title}">Edit Article</h1></div>
+      </header>
+      <div th:if="${successMessage}" class="success">
+         <span th:text="${successMessage}"></span>
+      </div>
+      <div th:if="${errorMessage}" class="error">
+         <span th:text="${errorMessage}"></span>
+      </div>
+      <form th:action="@{/blogs/{articleId}(articleId=${article.id})}" th:object="${article}" method="post" id="editArticle">
+         <input type="hidden" name="_method"value="PUT">
+         <div class="form-group">
+            <label for="title">
+               Title <span style="color: #e74c3c;">*</span>
+            </label>
+            <input type="text"
+                   id="title"
+                   th:field="*{title}"
+                   placeholder="Article Title"
+                   maxlength="100"
+                   required
+            >
+            <div class="form-hint">
+               Max a hundred characters
+            </div>
+            <div th:if="${#fields.hasErrors('title')}" class="error">
+               <span th:errors="*{title}"></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="publishingDate">
+               Publishing Date <span style="color: #e74c3c;">*</span>
+            </label>
+            <input type="date"
+                   id="publishingDate"
+                   th:field="*{publishingDate}"
+                   required
+            >
+            <div class="form-hint">
+               Select a date
+            </div>
+            <div th:if="${#fields.hasErrors('publishingDate')}" class="error">
+               <span th:errors="*{publishingDate}"></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <label for="content">
+               Content <span style="color: #e74c3c;">*</span>
+            </label>
+            <textarea id="content"
+                   th:field="*{content}"
+                   placeholder="Content"
+                   maxlength="3000"
+                   required
+            ></textarea>
+            <div class="counter">
+               Max : 500 words (about 3000 characters)
+            </div>
+            <div class="form-hint">
+               Max five hundred words
+            </div>
+            <div th:if="${#fields.hasErrors('content')}" class="error">
+               <span th:errors="*{content}"></span>
+            </div>
+         </div>
+         <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+               Update
+            </button>
+            <a th:href="@{/admin}" class="btn btn-secondary">
+               < Return to admin home page
+            </a>
+         </div>
+      </form>
+   </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+      font-family: 'Segoe UI', 'Roboto Mono', Tahoma, Geneva, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+}
+
+.container {
+   max-width: 800px;
+   margin: 0 auto;
+   background: white;
+   padding: 30px;
+   border-radius: 8px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+   display: inline-block;
+   cursor: pointer;
+   text-decoration: none;
+   color: #ffffff;
+   font-weight: bold;
+}
+
+h1 {
+   color: #2c3e50;
+   margin-bottom: 25px;
+   padding-bottom: 10px;
+   border-bottom: 2px solid #3498db;
+}
+
+.form-group {
+   margin-bottom: 20px;
+}
+
+label {
+   display: block;
+   margin-bottom: 8px;
+   font-weight: bold;
+   color: #34495e;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   font-size: 16px;
+   font-family: 'Segoe UI', 'Roboto Mono', Tahoma, Geneva, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+   outline: none;
+   border-color: #3498db;
+   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+textarea {
+   min-height: 200px;
+   resize: vertical;
+}
+
+.form-hint {
+   font-size: 14px;
+   color: #7f8c8d;
+   margin-top: 5px;
+}
+
+.error {
+   color: #e74c3c;
+   font-size: 14px;
+   margin-top: 5px;
+   padding: 8px;
+   background-color: #fdf2f2;
+   border-radius: 4px;
+}
+
+.success {
+   color: #27ae60;
+   font-size: 16px;
+   margin-bottom: 20px;
+   padding: 12px;
+   background-color: #eafaf1;
+   border-radius: 4px;
+}
+
+.form-actions {
+   margin-top: 30px;
+   padding-top: 20px;
+   border-top: 1px solid #eee;
+   display: flex;
+   gap: 10px;
+}
+
+.btn {
+   padding: 12px 24px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.btn-primary {
+   background-color: #3498db;
+   color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.btn-cancel {
+   background-color: #ecf0f1;
+   color: #34495e;
+   border: 1px solid #bdc3c7;
+}
+
+.btn-cancel:hover {
+   background-color: #dde4e6;
+}
+
+.counter {
+   text-align: right;
+   font-size: 14px;
+   color: #7f8c8d;
+   margin-top: 5px;
+}
+
+@media(max-width: 768px) {
+   .container {
+      padding: 20px;
+   }
+
+   .form-actions {
+      flex-direction: column;
+   }
+
+   .btn {
+      width: 100%;
+      text-align: center;
+   }
+}
+
